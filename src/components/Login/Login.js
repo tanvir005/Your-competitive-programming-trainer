@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 
@@ -20,13 +20,26 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
+    const [signInWithGoogle] = useSignInWithGoogle(auth);
+
+    const handleRestPass = event => {
+        const email = emailRef.current.value;
+        sendPasswordResetEmail(email);
+    }
 
 
-    const handleOnClickSignin = () => {
+    const handleOnClickSignin = event => {
+        event.preventDefault();
+
         const email = emailRef.current.value;
         const password = passRef.current.value;
-        signInWithEmailAndPassword(email, password)
+        signInWithEmailAndPassword(email, password);
 
+    }
+    const handleGoogleSignIn = () => {
+        signInWithGoogle();
     }
 
     if (loading) {
@@ -35,7 +48,7 @@ const Login = () => {
     if (user) {
         return (
             <div>
-                <p>Signed In User: {user.email}</p>
+                <p>Signed In User: {user?.email}</p>
             </div>
         );
     }
@@ -52,7 +65,7 @@ const Login = () => {
                     <label className="block text-gray-700 text-sm font-bold mb-2" for="password">
                         Password
                     </label>
-                    <input ref={emailRef} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="password" />
+                    <input ref={passRef} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="password" />
                     <p className="text-red-500 text-xs italic">{error?.message}</p>
                 </div>
                 <div className="mb-6">
@@ -62,9 +75,7 @@ const Login = () => {
                     <button onClick={handleOnClickSignin} className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-full rounded focus:outline-none focus:shadow-outline" type="button">
                         Sign In
                     </button>
-                    <a className="inline-block justify-center font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
-                        Forgot Password?
-                    </a>
+                    <a onClick={handleRestPass} className="inline-block justify-center font-bold text-sm text-blue-500 hover:text-blue-800" href="#">Forgot Password?</a>
                 </div>
                 <div className="my-5 flex items-center justify-evenly">
                     <div className="border-b-2 w-5/12"></div>
@@ -72,7 +83,7 @@ const Login = () => {
                     <div className="border-b-2 w-5/12"></div>
                 </div>
                 <div className="flex justify-evenly">
-                    <p>google</p>
+                    <p onClick={handleGoogleSignIn}>google</p>
                     <p>github</p>
                     <p>facebook</p>
                 </div>
