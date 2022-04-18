@@ -53,7 +53,9 @@ const Login = () => {
         );
     }
     return (
-        <div className="w-full max-w-lg mx-auto my-auto">
+
+        <div className="w-full max-w-lg mx-auto ">
+            <p className="text-slate-600  font-bold text-5xl my-10">Login Here</p>
             <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" for="username">
@@ -72,10 +74,10 @@ const Login = () => {
                     <p className="text-lg italic">Not Registered? <Link className="text-blue-900 hover:underline" to="/register">Register here.</Link></p>
                 </div>
                 <div className="">
-                    <button onClick={handleOnClickSignin} className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-full rounded focus:outline-none focus:shadow-outline" type="button">
+                    <button onClick={handleOnClickSignin} className=" bg-slate-800 hover:bg-slate-700 text-white font-bold py-2 px-4 w-full rounded focus:outline-none focus:shadow-outline" type="button">
                         Sign In
                     </button>
-                    <a onClick={handleRestPass} className="inline-block justify-center font-bold text-sm text-blue-500 hover:text-blue-800" href="#">Forgot Password?</a>
+                    <a onClick={handleRestPass} className="inline-block justify-center font-bold text-sm text-slate-800 hover:text-slate-700" href="#">Forgot Password?</a>
                 </div>
                 <div className="my-5 flex items-center justify-evenly">
                     <div className="border-b-2 w-5/12"></div>
@@ -92,6 +94,7 @@ const Login = () => {
                 &copy;{date.getFullYear()} Acme Corp. All rights reserved.
             </p>
         </div>
+
     );
 };
 

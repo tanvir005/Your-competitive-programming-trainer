@@ -56,6 +56,7 @@ const Register = () => {
 
     return (
         <div className="w-full max-w-lg mx-auto my-auto">
+            <p className="text-slate-600  font-bold text-5xl my-10">Registration Here</p>
             <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 <div className="flex flex-wrap -mx-3 mb-6">
                     <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -96,7 +97,7 @@ const Register = () => {
                     <p className="text-lg italic">Already Registered? <Link className="text-blue-900 hover:underline" to="/login">Login here.</Link></p>
                 </div>
                 <div className="flex items-center justify-between">
-                    <button onClick={handleOnClickReg} className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 w-full rounded focus:outline-none focus:shadow-outline" type="button">
+                    <button onClick={handleOnClickReg} className=" bg-slate-800 hover:bg-slate-700 text-white font-bold py-2 w-full rounded focus:outline-none focus:shadow-outline" type="button">
                         Register
                     </button>
 
