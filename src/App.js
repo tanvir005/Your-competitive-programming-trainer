@@ -10,7 +10,8 @@ import Checkout from './components/Checkout/Checkout';
 import RequireAuth from './components/RequireAuth/RequireAuth';
 import Footer from './components/Footer/Footer';
 import FourOFour from './components/FourOFour/FourOFour';
-
+import Blogs from './components/Blogs/Blogs';
+import About from './components/About/About';
 function App() {
   return (
     <div className="App">
@@ -24,6 +25,8 @@ function App() {
             <Checkout />
           </RequireAuth>
         } />
+        <Route path="blogs" element={<Blogs />} />
+        <Route path="about" element={<About />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="*" element={<FourOFour />} />
