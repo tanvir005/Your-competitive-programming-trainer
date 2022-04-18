@@ -61,7 +61,7 @@ const Register = () => {
 
 
     return (
-        <div className="w-full max-w-lg mx-auto my-auto">
+        <div className="w-full max-w-lg mx-auto my-auto mb-10">
             <p className="text-slate-600  font-bold text-5xl my-10">Registration Here</p>
             <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 <div className="flex flex-wrap -mx-3 mb-6">
@@ -109,9 +109,7 @@ const Register = () => {
 
                 </div>
             </form>
-            <p className="text-center text-gray-500 text-xs">
-                &copy;{date.getFullYear()} Acme Corp. All rights reserved.
-            </p>
+
         </div>
 
     );

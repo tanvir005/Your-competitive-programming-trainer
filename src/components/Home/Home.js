@@ -40,6 +40,18 @@ const Home = () => {
 
                 </div>
             </div>
+            <div>
+                <img src="" alt="" />
+                <div>
+                    <p className="text-lg text-green-800">Experience</p>
+                    <h1 className="md:text-6xl font-semibold font-serif">Life Training in Numbers</h1>
+                    <p className="text-lg text-green-700">Your Compitetive Programming Trainer <span className="italic">___ by rifatentr</span></p>
+                    <div className="flex justify-staet gap-10 mx-auto mt-5 ">
+                        <button className="bg-blue-900 hover:bg-blue-800 px-6 py-2 rounded font-bold text-teal-100 ">Services</button>
+                        <button className="bg-slate-800 hover:bg-slate-900 px-6 py-2 rounded font-bold text-teal-100 ">About Me</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
     );

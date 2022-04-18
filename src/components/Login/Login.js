@@ -1,37 +1,30 @@
 import React, { useRef, useState } from 'react';
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const Login = () => {
     const date = new Date();
-
-    //taking values using useRef
-    const emailRef = useRef('');
-    const passRef = useRef('');
-
-    const navigate = useNavigate();
-    const location = useLocation();
-    const from = location.state?.from?.pathname || '/';
-
-    // error
-    const [errorMsg, setErrorMasg] = useState('');
-
+    const [user] = useAuthState(auth);
 
     const [
         signInWithEmailAndPassword,
-        user,
+        emailPassUser,
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
-    const [signInWithGoogle] = useSignInWithGoogle(auth);
 
-    const handleRestPass = event => {
-        const email = emailRef.current.value;
-        sendPasswordResetEmail(email);
-    }
+
+    //taking values using useRef
+    const emailRef = useRef('');
+    const passRef = useRef('');
+
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
 
     const handleOnClickSignin = event => {
@@ -40,23 +33,31 @@ const Login = () => {
         const email = emailRef.current.value;
         const password = passRef.current.value;
         signInWithEmailAndPassword(email, password);
-
-
-
     }
-    const handleGoogleSignIn = () => {
-        signInWithGoogle();
+
+    const handleRestPass = event => {
+        const email = emailRef.current.value;
+        sendPasswordResetEmail(email);
+    }
+
+    let errorElement;
+    if (error) {
+        errorElement = <p className="text-red-700"> Error: {error?.message}</p>
     }
 
     if (loading) {
-        return <p>Loading...</p>;
+        return <p className="text-center font-bold text-4xl">Loading...</p>;
+    }
+    if (sending) {
+        return <p className="text-center font-bold text-4xl">Sending...</p>;
     }
     if (user) {
         navigate(from, { replace: true });
     }
+
     return (
 
-        <div className="w-full max-w-lg mx-auto ">
+        <div className="w-full max-w-lg mx-auto mb-10">
             <p className="text-slate-600  font-bold text-5xl my-10">Login Here</p>
             <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 <div className="mb-4">
@@ -70,7 +71,7 @@ const Login = () => {
                         Password
                     </label>
                     <input ref={passRef} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="password" />
-                    <p className="text-red-500 text-xs italic">{error?.message}</p>
+                    <p className="text-red-500 text-xs italic">{errorElement}</p>
                 </div>
                 <div className="mb-6">
                     <p className="text-lg italic">Not Registered? <Link className="text-blue-900 hover:underline" to="/register">Register here.</Link></p>
@@ -86,15 +87,9 @@ const Login = () => {
                     <p>or</p>
                     <div className="border-b-2 w-5/12"></div>
                 </div>
-                <div className="flex justify-evenly">
-                    <p onClick={handleGoogleSignIn}>google</p>
-                    <p>github</p>
-                    <p>facebook</p>
-                </div>
+
             </form>
-            <p className="text-center text-gray-500 text-xs">
-                &copy;{date.getFullYear()} Acme Corp. All rights reserved.
-            </p>
+
         </div>
 
     );

@@ -26,7 +26,8 @@ const Header = () => {
                     <ul className={`inline-grid md:flex text-xl bg-slate-300 font-bold md:gap-10 md:justify-center text-left justify-start absolute left-1 duration-500 ease-in md:sticky p-5 ${open ? 'top-15' : 'top-[-860px]'}`}>
                         <CustomLink className="px-4 py-2 pb-8 rounded hover:bg-slate-200  duration-300 ease-in" to="/">Home</CustomLink>
                         <CustomLink className="px-4 py-2 pb-8 rounded hover:bg-slate-200  duration-300 ease-in" to="/services">Service</CustomLink>
-                        <CustomLink className="px-4 py-2 pb-8 rounded hover:bg-slate-200  duration-300 ease-in" to="/service">About</CustomLink>
+                        <CustomLink className="px-4 py-2 pb-8 rounded hover:bg-slate-200  duration-300 ease-in" to="/about">About</CustomLink>
+                        <CustomLink className="px-4 py-2 pb-8 rounded hover:bg-slate-200  duration-300 ease-in" to="/checkout">Checkout</CustomLink>
                         {
                             user ? <div className="inline-grid md:flex md:gap-10 md:justify-center text-left justify-start">
                                 <img className="w-12 h-12 rounded-full border-2" src={user?.photoURL} alt="" />
