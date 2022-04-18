@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const DisplayService = (props) => {
     const { name, img, details, price } = props.review;
@@ -11,9 +12,11 @@ const DisplayService = (props) => {
                 <h3 className="text-2xl font-bold text-left ">{name}</h3>
                 <p className="text-slate-500 text-justify">{details}</p>
                 <p className="text-black text-justify font-bold text-lg my-5">Price:  ${price}</p>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 w-full rounded focus:outline-none focus:shadow-outline" type="button">
-                    Register
-                </button>
+                <Link to="/checkout">
+                    <button className=" bg-slate-800 hover:bg-slate-700 text-white font-bold py-2 w-full rounded focus:outline-none focus:shadow-outline" type="button">
+                        Book Now
+                    </button>
+                </Link>
 
             </div>
         </div>

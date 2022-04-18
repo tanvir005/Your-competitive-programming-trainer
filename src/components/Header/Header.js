@@ -4,8 +4,8 @@ import { XIcon, MenuIcon } from '@heroicons/react/solid';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { signOut } from '@firebase/auth';
-import { Link } from 'react-router-dom';
 import logo from '../../Group 33137.png';
+import { Link } from 'react-router-dom';
 
 
 const Header = () => {
@@ -17,7 +17,7 @@ const Header = () => {
         <nav className="w-full bg-slate-300 top-0 sticky">
             <div className=" md:flex md:justify-between">
                 <div>
-                    <img className="w-11/12 p-2" src={logo} alt="" />
+                    <Link to="/" > <img className="w-11/12 p-2" src={logo} alt="" /></Link>
                 </div>
                 <div>
                     <div onClick={() => setOpen(!open)} className="md:hidden w-full bg-slate-300">
@@ -29,8 +29,8 @@ const Header = () => {
                         <CustomLink className="px-4 py-2 pb-8 rounded hover:bg-slate-200  duration-300 ease-in" to="/service">About</CustomLink>
                         {
                             user ? <div className="inline-grid md:flex md:gap-10 md:justify-center text-left justify-start">
-                                <img className="w-10 h-10" src={user?.photoURL} alt="" />
-                                <button onClick={() => signOut(auth)} className="px-4 py-2 pb-8  rounded hover:bg-slate-200  duration-300 ease-in" >Sign Out</button>
+                                <img className="w-12 h-12 rounded-full border-2" src={user?.photoURL} alt="" />
+                                <button onClick={() => signOut(auth)} className="px-4 py-2 pb-8 rounded hover:bg-slate-200 font-bold  duration-300 ease-in" >Sign Out</button>
 
 
                             </div>

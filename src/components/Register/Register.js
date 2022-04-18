@@ -1,19 +1,23 @@
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 const Register = () => {
     const date = new Date();
+    // error
+    const [errorMsg, setErrorMasg] = useState('');
 
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
-        error,
+        createError,
     ] = useCreateUserWithEmailAndPassword(auth);
+    const [sendEmailVerification, sending, verificationError] = useSendEmailVerification(auth);
 
-    // error
-    const [errorMsg, setErrorMasg] = useState('');
+
+
+
 
     //taking values using useRef
     const emailRef = useRef('');
@@ -30,8 +34,11 @@ const Register = () => {
         }
     }
 
-    if (error) {
-        setErrorMasg(error.message)
+    if (createError) {
+        setErrorMasg(createError.message)
+    }
+    if (verificationError) {
+        setErrorMasg(verificationError.message)
     }
     if (loading) {
         return <p>Loading...</p>;
@@ -46,11 +53,10 @@ const Register = () => {
             setErrorMasg("Password doesn't match.");
             return;
         }
-        else {
-            setErrorMasg('');
-        }
+
         console.log(email, pass, password);
         createUserWithEmailAndPassword(email, password);
+        sendEmailVerification();
     }
 
 

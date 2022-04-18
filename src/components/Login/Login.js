@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const Login = () => {
@@ -9,6 +9,10 @@ const Login = () => {
     //taking values using useRef
     const emailRef = useRef('');
     const passRef = useRef('');
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     // error
     const [errorMsg, setErrorMasg] = useState('');
@@ -37,6 +41,8 @@ const Login = () => {
         const password = passRef.current.value;
         signInWithEmailAndPassword(email, password);
 
+
+
     }
     const handleGoogleSignIn = () => {
         signInWithGoogle();
@@ -46,11 +52,7 @@ const Login = () => {
         return <p>Loading...</p>;
     }
     if (user) {
-        return (
-            <div>
-                <p>Signed In User: {user?.email}</p>
-            </div>
-        );
+        navigate(from, { replace: true });
     }
     return (
 
