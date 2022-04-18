@@ -2,10 +2,10 @@ import React, { useRef, useState } from 'react';
 import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import auth from '../../firebase.init';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
     const date = new Date();
-    const [user] = useAuthState(auth);
 
     const [
         signInWithEmailAndPassword,
@@ -51,7 +51,7 @@ const Login = () => {
     if (sending) {
         return <p className="text-center font-bold text-4xl">Sending...</p>;
     }
-    if (user) {
+    if (emailPassUser) {
         navigate(from, { replace: true });
     }
 
@@ -61,13 +61,13 @@ const Login = () => {
             <p className="text-slate-600  font-bold text-5xl my-10">Login Here</p>
             <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
                         Email
                     </label>
                     <input ref={emailRef} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username" />
                 </div>
                 <div className="mb-6">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" for="password">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
                         Password
                     </label>
                     <input ref={passRef} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="password" />
@@ -87,6 +87,7 @@ const Login = () => {
                     <p>or</p>
                     <div className="border-b-2 w-5/12"></div>
                 </div>
+                <SocialLogin></SocialLogin>
 
             </form>
 
