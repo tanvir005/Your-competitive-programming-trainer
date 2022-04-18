@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Programming Introduction",
+        "img": "./images/programming.png",
+        "price": 499,
+        "details": "Learning to code is a new skill that is popular these days. It is so much in demand that even high schools have added programming in their curriculum. Programming and coding are often used interchangeably but both are different and you can learn with me. "
+    },
+    {
+        "name": "Dynamic Programming - DP",
+        "img": "./images/dynamicprogramming.jpeg",
+        "price": 599,
+        "details": "Dynamic programming is a very powerful technique to solve a particular class of problems. It demands very elegant formulation of the approach and simple thinking and the coding part is very easy. The idea is very simple, If you have solved a problem with the given input, then save the result for future reference, so as to avoid solving the same problem again. "
+    },
+    {
+        "name": "Mastering Algorithms",
+        "img": "./images/algo.png",
+        "price": 599,
+        "details": "A programming algorithm is a procedure or formula used for solving a problem. It is based on conducting a sequence of specified actions in which these actions describe how to do something, and your computer will do it exactly that way every time. An algorithm works by following a procedure, made up of inputs."
+    },
+    {
+        "name": "Data Structures",
+        "img": "./images/algop.png",
+        "price": 399,
+        "details": "A data structure is a named location that can be used to store and organize data. And, an algorithm is a collection of steps to solve a particular problem. Learning data structures and algorithms allow us to write efficient and optimized computer programs."
+    },
+    {
+        "name": "Project Development",
+        "img": "./images/webdev.png",
+        "price": 499,
+        "details": "Improve your programming skills by working on real-world projects. Join our free community to discuss projects, review code, and learn from peers and mentors."
+    },
+    {
+        "name": "Crack the Interview",
+        "img": "./images/intervw-prep.jpg",
+        "price": 299,
+        "details": "Coding interviews appear to be getting more complicated, and preparing for them isn't easy. In an interview, there's no telling what kind of questions you'll be asked, and many of them aren't easy. Each person's toughest questions will be different. What is simple for you may be difficult for someone else – and vice versa."
+    }
+]

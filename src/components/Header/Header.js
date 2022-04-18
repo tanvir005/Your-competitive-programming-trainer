@@ -20,12 +20,12 @@ const Header = () => {
                     <img className="w-11/12 p-2" src={logo} alt="" />
                 </div>
                 <div>
-                    <div onClick={() => setOpen(!open)} className="md:hidden w-full pt-3 bg-white">
-                        {open ? <XIcon className="md:hidden w-7 h-7 bg-white"></XIcon> : <MenuIcon className="md:hidden w-7 h-7 bg-white"></MenuIcon>}
+                    <div onClick={() => setOpen(!open)} className="md:hidden w-full bg-slate-300">
+                        {open ? <XIcon className="md:hidden w-7 h-7 bg-slate-300"></XIcon> : <MenuIcon className="md:hidden w-7 h-7 bg-slate-300"></MenuIcon>}
                     </div>
                     <ul className={`inline-grid md:flex text-xl bg-slate-300 font-bold md:gap-10 md:justify-center text-left justify-start absolute left-1 duration-500 ease-in md:sticky p-5 ${open ? 'top-15' : 'top-[-860px]'}`}>
                         <CustomLink className="px-4 py-2 pb-8 rounded hover:bg-slate-200  duration-300 ease-in" to="/">Home</CustomLink>
-                        <CustomLink className="px-4 py-2 pb-8 rounded hover:bg-slate-200  duration-300 ease-in" to="/service">Service</CustomLink>
+                        <CustomLink className="px-4 py-2 pb-8 rounded hover:bg-slate-200  duration-300 ease-in" to="/services">Service</CustomLink>
                         <CustomLink className="px-4 py-2 pb-8 rounded hover:bg-slate-200  duration-300 ease-in" to="/service">About</CustomLink>
                         {
                             user ? <div className="inline-grid md:flex md:gap-10 md:justify-center text-left justify-start">
