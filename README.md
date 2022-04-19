@@ -1,7 +1,9 @@
 # Your Compitetive Programming Trainer
 
-This project's repo is in [ https://github.com/programming-hero-web-course-4/independent-service-provider-tanvir005]( https://github.com/programming-hero-web-course-4/independent-service-provider-tanvir005).
-This project's Live Link [ https://astonishing-starlight-2af497.netlify.app/]( https://astonishing-starlight-2af497.netlify.app).
+- This project's repo is in [ https://github.com/programming-hero-web-course-4/independent-service-provider-tanvir005]( https://github.com/programming-hero-web-course-4/independent-service-provider-tanvir005).
+
+
+- This project's Live Link [ https://astonishing-starlight-2af497.netlify.app/]( https://astonishing-starlight-2af497.netlify.app).
 
 ## Fetures of the Project
 
