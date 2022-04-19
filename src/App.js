@@ -12,6 +12,9 @@ import Footer from './components/Footer/Footer';
 import FourOFour from './components/FourOFour/FourOFour';
 import Blogs from './components/Blogs/Blogs';
 import About from './components/About/About';
+import VerificationSend from './components/VerificationSend/VerificationSend';
+import Loading from './components/Loading/Loading';
+import Payment from './components/Payment/Payment';
 function App() {
   return (
     <div className="App">
@@ -25,10 +28,23 @@ function App() {
             <Checkout />
           </RequireAuth>
         } />
+        <Route path="service/:serviceName" element={
+          <RequireAuth>
+            <Checkout />
+          </RequireAuth>
+        } />
         <Route path="blogs" element={<Blogs />} />
+        <Route path="verificationsend" element={<VerificationSend />} />
         <Route path="about" element={<About />} />
         <Route path="login" element={<Login />} />
+        <Route path="loading" element={<Loading />} />
         <Route path="register" element={<Register />} />
+        <Route path="successPayment" element={
+          <RequireAuth>
+            <Payment />
+          </RequireAuth>
+        } />
+        {/* <Route path="cart" element={<Cart />} /> */}
         <Route path="*" element={<FourOFour />} />
       </Routes>
       <Footer></Footer>

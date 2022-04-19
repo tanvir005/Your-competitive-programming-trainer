@@ -8,21 +8,23 @@ import yt from '../../images/youtube-logo-png-2069.png';
 
 
 const SocialLogin = () => {
-
-    const navigate = useNavigate();
-    const location = useLocation();
-
-    const from = location.state?.from?.pathname;
     // google sign in 
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
-
     // git signin 
     const [signInWithGithub, gitUser, gitLoading, gitError] = useSignInWithGithub(auth);
 
-    const handleGoogleSignIn = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
+
+
+    const handleGoogleSignIn = (event) => {
+        event.preventDefault();
         signInWithGoogle();
     }
-    const handleGitSignIn = () => {
+    const handleGitSignIn = event => {
+        event.preventDefault();
         signInWithGithub();
     }
 

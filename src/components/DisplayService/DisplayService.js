@@ -1,9 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const DisplayService = (props) => {
-    const { name, img, details, price } = props.review;
+const DisplayService = ({ review }) => {
+    const { name, img, details, price } = review;
+    const navigate = useNavigate();
 
+    const navigateToCheckOut = name => {
+        navigate(`/service/${name}`)
+    }
     return (
         <div className="flex gap-10 m-10 p-5 border-2 shadow-slate-50 rounded-2xl">
 
@@ -12,11 +16,10 @@ const DisplayService = (props) => {
                 <h3 className="text-2xl font-bold text-left ">{name}</h3>
                 <p className="text-slate-500 text-justify">{details}</p>
                 <p className="text-black text-justify font-bold text-lg my-5">Price:  ${price}</p>
-                <Link to="/checkout">
-                    <button className=" bg-slate-800 hover:bg-slate-700 text-white font-bold py-2 w-full rounded focus:outline-none focus:shadow-outline" type="button">
-                        Book Now
-                    </button>
-                </Link>
+
+                <button onClick={() => navigateToCheckOut(name)} className=" bg-slate-800 hover:bg-slate-700 text-white font-bold py-2 w-full rounded focus:outline-none focus:shadow-outline" type="button">
+                    Book Now
+                </button>
 
             </div>
         </div>

@@ -33,10 +33,10 @@ const Footer = () => {
                     <div className="text-start ">
                         <h1 className="text-2xl font-bold mb-5 text-white">Follow Me</h1>
                         <ul className="flex gap-5">
-                            <Link to="/"><img className="w-5 h-5" src={google} alt="" /></Link>
-                            <Link to="/services"><img className="w-5 h-5" src={yt} alt="" /></Link>
-                            <Link to="/about"><img className="w-5 h-5" src={git} alt="" /></Link>
-                            <Link to="/register"><img className="w-5 h-5" src={spotify} alt="" /></Link>
+                            <a href="https://www.google.com/" target='_blank'><img className="w-5 h-5" src={google} alt="" /></a>
+                            <a href="https://www.youtube.com" target='_blank'><img className="w-5 h-5" src={yt} alt="" /></a>
+                            <a href="https://www.github.com" target='_blank'><img className="w-5 h-5" src={git} alt="" /></a>
+                            <a href=""><img className="w-5 h-5" src={spotify} alt="" /></a>
                         </ul>
                     </div>
                 </div>
