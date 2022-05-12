@@ -44,7 +44,7 @@ const Checkout = () => {
                                     Name
                                 </label>
                                 <input ref={nameFrist} value={user?.displayName} readOnly className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white invalid:border-pink-500 invalid:text-pink-600" id="grid-first-name" type="text" placeholder="Name" required />
-                                {/* <p className="text-red-500 text-xs italic">Please fill out this field.</p> */}
+
                             </div>
                             <div className="mb-4">
                                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
@@ -56,14 +56,16 @@ const Checkout = () => {
                                         <input ref={emailRef} value={user?.email} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline invalid:border-pink-500 invalid:text-pink-600" id="email" type="email" placeholder="email" required />
                                 }    </div>
                             <div className="mb-6">
-                                <label className="block text-gray-700 text-sm font-bold mb-2" >
-                                    Mobile no
-                                </label>
-                                {
+                                <label className="block text-gray-700 text-sm font-bold mb-2" >  Mobile no </label>
+
+                                <input ref={emailRef} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline invalid:border-pink-500 invalid:text-pink-600" type="number" placeholder="Mobile no" required />
+
+                                {/* {
                                     user.email ? <input ref={emailRef} value={user?.phoneNumber} readOnly className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline invalid:border-pink-500 invalid:text-pink-600" type="number" placeholder="Mobile no" required />
                                         :
                                         <input ref={emailRef} value={user?.phoneNumber} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline invalid:border-pink-500 invalid:text-pink-600" type="number" placeholder="Mobile no" required />
-                                }</div>
+                                } */}
+                            </div>
                             <div className="mb-6">
                                 <label className="block text-gray-700 text-sm font-bold mb-2">
                                     Address

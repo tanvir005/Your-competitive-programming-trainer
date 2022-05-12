@@ -58,9 +58,9 @@ const Login = () => {
     if (loading) {
         return <Loading></Loading>
     }
-    if (sending) {
-        toast("Sending...");
-    }
+    // if (sending) {
+    //     toast("Password Reset Email Send.");
+    // }
     if (emailPassUser) {
         navigate(from, { replace: true });
     }
